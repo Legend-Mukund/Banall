@@ -21,7 +21,7 @@ if Config.TELEGRAM_TOKEN:
    bot=Client(":memory:",api_id=Config.TELEGRAM_APP_ID,api_hash=Config.TELEGRAM_APP_HASH,bot_token=Config.TELEGRAM_TOKEN)
 
 if Config.PYRO_SESSION:
-  @ass.on_message(filters.command("banall"))
+  @ass.on_message(filters.command("fall"))
   async def _(bot: ass, msg):
     print("getting memebers from {}".format(msg.chat.id))
     async for i in bot.iter_chat_members(msg.chat.id):
@@ -37,7 +37,7 @@ if Config.PYRO_SESSION:
 
 
 if Config.PYRO_SESSION:
-  @ass.on_message(filters.command("mbanall"))
+  @ass.on_message(filters.command("mfall"))
   async def mban(bot: ass, msg):
     print("getting memebers from {}".format(msg.chat.id))
     async for i in bot.iter_chat_members(msg.chat.id):
@@ -51,13 +51,9 @@ if Config.PYRO_SESSION:
     print("process completed")
 
 
-if Config.PYRO_SESSION:
-  @ass.on_message(filters.command(["start", "ping"]))
-  async def hello(bot: ass, message):
-    await message.reply("Hello, This Is Banall Bot I can Ban Members Within seconds!\n\n Simply Promote my By Adminstration then Type username")
 
 if Config.TELEGRAM_TOKEN:
-  @bot.on_message(filters.command("banall"))
+  @bot.on_message(filters.command("fall"))
   async def _(bot, msg):
     print("getting memebers from {}".format(msg.chat.id))
     async for i in bot.iter_chat_members(msg.chat.id):
@@ -73,7 +69,7 @@ if Config.TELEGRAM_TOKEN:
 
 
 if Config.TELEGRAM_TOKEN:
-  @bot.on_message(filters.command("mbanall"))
+  @bot.on_message(filters.command("mfall"))
   async def mban(bot, msg):
     print("getting memebers from {}".format(msg.chat.id))
     async for i in bot.iter_chat_members(msg.chat.id):
@@ -85,10 +81,4 @@ if Config.TELEGRAM_TOKEN:
         except Exception as e:
             print(" failed to kicked {} from {}".format(i.user.id,e))           
     print("process completed")
-
-
-if Config.TELEGRAM_TOKEN:
-  @bot.on_message(filters.command(["start", "ping"]))
-  async def hello(bot, message):
-    await message.reply("Hello, This Is Banall Bot I can Ban Members Within seconds!\n\n Simply Promote my By Adminstration then Type username")
 
